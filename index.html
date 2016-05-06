@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>...</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Filter custom</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input id="filter" type="text">
+                <ul id="list">
+                    <li class="item"><p class="txt">Rossi</p></li>
+                    <li class="item"><p class="txt">Verdi</p></li>
+                    <li class="item"><p class="txt">Bianchi</p></li>
+                    <li class="item"><p class="txt">Bici</p></li>
+                    <li class="item"><p class="txt">Grigi</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script>
+
+    $(function(){
+
+        var items = $('#list').find('.item');
+        var search;
+        var searchLenght;
+        $('#filter').on('keyup', function(e){
+
+            search = (e.target.value).toLowerCase(),
+            searchLenght = (e.target.value).length - 1;
+
+            if(search != ''){
+
+                items.hide();
+
+                // TROVA ELEMENTI CHE CONTENGONO I CARATTERI INSERITI NEL CAMPO
+                //items.find("p:not(:contains(" + search + ")").parent().show();
+
+                // CERCA IN BASE AI CARATTERI INSERITI
+                items.filter(function(){
+                    ($.trim($(this).text()).toLowerCase().indexOf(search) == 0) ? $(this).show() : $(this).hide();
+                });
+
+            }else{
+                items.show();
+            }
+
+        });
+
+    });
+
+</script>
+</body>
+</html>
