@@ -43,10 +43,10 @@
 
                 items.hide();
 
-                // TROVA ELEMENTI CHE CONTENGONO I CARATTERI INSERITI NEL CAMPO
+                // FIND ELEMENTS BY CHARS CONTAINED (VERSION -A-)
                 //items.find("p:not(:contains(" + search + ")").parent().show();
 
-                // CERCA IN BASE AI CARATTERI INSERITI
+                // FIND ELEMENTS BY CHARS WRITTEN (VERSION -B-)
                 items.filter(function(){
                     ($.trim($(this).text()).toLowerCase().indexOf(search) == 0) ? $(this).show() : $(this).hide();
                 });
