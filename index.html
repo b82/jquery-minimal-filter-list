@@ -31,9 +31,10 @@
 
     $(function(){
 
-        var items = $('#list').find('.item');
-        var search;
-        var searchLenght;
+        var items = $('#list').find('.item'),
+            search,
+            searchLenght;
+            
         $('#filter').on('keyup', function(e){
 
             search = (e.target.value).toLowerCase(),
